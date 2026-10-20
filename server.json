@@ -1,0 +1,22 @@
+{
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+    "name": "xyz.agentreader/agentreader",
+    "title": "AgentReader",
+    "description": "Web pages and PDFs as clean Markdown/JSON for agents, in far fewer tokens. Honest, uncharged errors.",
+    "version": "0.4.2",
+    "websiteUrl": "https://agentreader.xyz",
+    "remotes": [
+        {
+            "type": "streamable-http",
+            "url": "https://agentreader.xyz/mcp",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "description": "Optional: \"Bearer ar_...\" API key holding prepaid credits (issued when you buy a bundle at https://agentreader.xyz/v1/credits/buy)",
+                    "isRequired": false,
+                    "isSecret": true
+                }
+            ]
+        }
+    ]
+}
