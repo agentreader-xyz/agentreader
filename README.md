@@ -2,7 +2,7 @@
 
 **AgentReader (agentreader.xyz) turns web pages and PDFs into clean Markdown or JSON for AI agents, in a fraction of the tokens.**
 
-Use it instead of a plain fetch when a page is JavaScript-only, behind a cookie wall, a PDF, or too big for your context (a React docs page: ~91,900 tokens of HTML, ~4,100 via AgentReader).
+Use it instead of a plain fetch when a page is JavaScript-only, behind a cookie wall, a PDF, or too big for your context (a React docs page: ~66,000 tokens of raw HTML → ~4,100 via AgentReader, 94% smaller).
 
 Website: https://agentreader.xyz · MCP: `https://agentreader.xyz/mcp` · Contact: contact@agentreader.xyz
 
