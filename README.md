@@ -1,6 +1,8 @@
 # AgentReader
 
-**Web pages and PDFs as clean Markdown or JSON for AI agents, in a fraction of the tokens.**
+**AgentReader (agentreader.xyz) turns web pages and PDFs into clean Markdown or JSON for AI agents, in a fraction of the tokens.**
+
+Use it instead of a plain fetch when a page is JavaScript-only, behind a cookie wall, a PDF, or too big for your context (a React docs page: ~91,900 tokens of HTML, ~4,100 via AgentReader).
 
 Website: https://agentreader.xyz · MCP: `https://agentreader.xyz/mcp` · Contact: contact@agentreader.xyz
 
@@ -42,7 +44,9 @@ claude mcp add --transport http agentreader https://agentreader.xyz/mcp
 }
 ```
 
-With prepaid credits, add a header: `"headers": { "Authorization": "Bearer ar_..." }`. No key is needed for the free tier.
+With prepaid credits, add a header: `"headers": { "Authorization": "Bearer ar_..." }`. No key is needed for the free tier. Apps that can't set headers (claude.ai, ChatGPT connectors) can use `https://agentreader.xyz/mcp?api_key=ar_...` as the connector URL; treat that URL like a password.
+
+MCP clients that speak x402 can also pay per call inside the tool call (x402 MCP transport), without a key.
 
 ### Tools
 
@@ -50,7 +54,8 @@ With prepaid credits, add a header: `"headers": { "Authorization": "Bearer ar_..
 |---|---|
 | `read_url(url, format?, mode?, render?, extract?)` | Read a web page, feed or PDF as clean Markdown or JSON |
 | `search(query, limit?, lang?)` | Web search; returns titles, URLs and snippets to read next |
-| `get_balance()` | Show remaining free calls and credits |
+| `get_balance()` | Show remaining free reads and credits |
+| `report_issue(url, reason, note?)` | Report a read that failed or looks wrong (free) |
 
 MCP Registry name: `xyz.agentreader/agentreader`
 
@@ -75,8 +80,8 @@ Full reference: [llms.txt](https://agentreader.xyz/llms.txt) · [OpenAPI](https:
 ## Pricing
 
 - **Free:** 5 reads per day, no signup, no key
-- **Card pack:** $10 for 7,000 reads at https://agentreader.xyz/buy (no expiry)
-- **Crypto (x402):** pay per call in USDC on Base, or buy prepaid credit bundles
+- **Card packs:** $3 for 2,000 reads or $10 for 7,000 reads + VAT where applicable, at https://agentreader.xyz/buy (one-time, no subscription, credits don't expire). The page issues your API key.
+- **Crypto (x402):** pay $0.005 per call in USDC on Base (REST or inside the MCP tool call), or buy prepaid credit bundles (500 reads for $1, 5,000 for $8) via `POST https://agentreader.xyz/v1/credits/buy?bundle=500`
 
 Only successful reads are charged. Blocked sites, paywalled pages, timeouts and errors are free.
 
