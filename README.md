@@ -77,6 +77,15 @@ Useful options: `format=markdown|json`, `mode=auto|article|links|full`, `render=
 
 Full reference: [llms.txt](https://agentreader.xyz/llms.txt) · [OpenAPI](https://agentreader.xyz/openapi.json)
 
+## Python: LangChain and LlamaIndex
+
+```bash
+pip install langchain-agentreader            # from langchain_agentreader import AgentReaderLoader
+pip install llama-index-readers-agentreader  # from llama_index.readers.agentreader import AgentReaderWebReader
+```
+
+Source: [agentreader-xyz/agentreader-python](https://github.com/agentreader-xyz/agentreader-python). Both work on the free tier without a key; set `AGENTREADER_API_KEY` for credits.
+
 ## Pricing
 
 - **Free:** 5 reads per day, no signup, no key
