@@ -16,7 +16,7 @@ An agent's built-in fetch often comes back with something it can't use:
 - token-heavy HTML full of menus, ads and scripts
 - a "200 OK" that is really a bot challenge or a paywall teaser
 
-AgentReader returns the page's actual content as compact Markdown (or JSON with title, author, date, links and tables). Code blocks are kept verbatim. When a site blocks bots or a page is paywalled, you get an honest error instead of junk, and you are **not charged**.
+AgentReader returns the page's actual content as compact Markdown (or JSON with title, author, date, links and tables). Code blocks are kept verbatim. JSON URLs (APIs such as `datasets-server.huggingface.co`) come back pretty-printed, or as parsed `data` with `format=json`; `.txt` and `.md` files (including `raw.githubusercontent.com`) come back cleaned. When a site blocks bots or a page is paywalled, you get an honest error instead of junk, and you are **not charged**.
 
 ## Connect over MCP (remote, Streamable HTTP)
 
@@ -52,7 +52,7 @@ MCP clients that speak x402 can also pay per call inside the tool call (x402 MCP
 
 | Tool | What it does |
 |---|---|
-| `read_url(url, format?, mode?, render?, extract?)` | Read a web page, feed or PDF as clean Markdown or JSON |
+| `read_url(url, format?, mode?, render?, extract?)` | Read a web page, feed, PDF, JSON, .txt or .md file as clean Markdown or JSON |
 | `search(query, limit?, lang?)` | Web search; returns titles, URLs and snippets to read next |
 | `get_balance()` | Show remaining free reads and credits |
 | `report_issue(url, reason, note?)` | Report a read that failed or looks wrong (free) |
